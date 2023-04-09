@@ -1,0 +1,24 @@
+.addCardBtn {
+  width: 100%;
+  height: 45px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 58px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  transition: all 0.2s ease-in-out;
+}
+
+.addCardBtn:hover {
+  background-color: #0000001A;
+  border-color: #0000001A;
+}
+
+.addCardBtn:focus-visible {
+  border-color: #000;
+}
+
+.addCardBtn:active {
+  background-color: #00000033;
+}

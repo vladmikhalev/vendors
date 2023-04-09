@@ -1,0 +1,36 @@
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 72px;
+}
+
+.title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 94px;
+  letter-spacing: -0.02em;
+}
+
+
+
+
+@media screen and (max-width: 1320px) {
+  .sectionHeader {
+    position: relative;
+    max-width: 570px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 47px;
+    letter-spacing: -0.02em;
+  }
+}
+

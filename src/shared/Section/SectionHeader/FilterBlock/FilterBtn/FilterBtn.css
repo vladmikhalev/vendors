@@ -1,0 +1,30 @@
+
+
+.filterBtn {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(22px);
+  border-radius: 100%;
+  padding: 28px 30px;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.filterBtn:hover {
+  background-color: #0000001A;
+  border-color: #0000001A;
+}
+
+.filterBtn:focus-visible {
+  border-color: #000;
+}
+
+.filterBtn:active {
+  background-color: #00000033;
+}
+
+
+@media screen and (max-width: 1320px) {
+  .filterBtn {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+.filterBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 467px;
+}
+
+
+
+@media screen and (max-width: 1320px) {
+  .filterBlock {
+    position: absolute;
+    top: 152px;
+    left: 0;
+  }
+}
+
+
