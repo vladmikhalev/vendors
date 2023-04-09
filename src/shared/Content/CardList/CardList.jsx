@@ -160,14 +160,15 @@ function CardList(props) {
       sortValue = data.filter(item => item.name.toLowerCase().startsWith(props.searchText.toLowerCase()))
       setNewData(sortValue);
       setCards(initialState(sortValue))
-    } 
+    }
 
     //Фильтрация по российким компаниям
-      if (context.filterState) {
-        const filterData = sortValue.filter((item) => item.suppliers === 'РУС');
-        setNewData(filterData);
-        setCards(initialState(filterData));
-      }
+    if (context.filterState) {
+      console.log('filter country', context.filterState);
+      const filterData = sortValue.filter((item) => item.suppliers === 'РУС');
+      setNewData(filterData);
+      setCards(initialState(filterData));
+    }
 
   }, [props.searchText, context.filterState])
 
@@ -182,18 +183,22 @@ function CardList(props) {
       // }
     }
   }
-
   // Обработчик события кнопки "Показать все карточки"
   function handleShowAll() {
-    if (1321 < window.innerWidth) {
+    if (window.innerWidth > 1321) {
       context.handleOpenSearch(false);
     }
+    console.log(context);
     setCards(initialState(data));
     setNewData(data)
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.getElementById('filter').checked = false;
+    context.handleFilterState(false)
+    props.setSearchText('')
   }
 
-
+  console.log(cards.length);
+  console.log(newData.length);
   const showBtn = cards.length === newData.length
   return (
     <>

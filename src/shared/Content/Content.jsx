@@ -39,7 +39,7 @@ function Content() {
         clearInput={clearInput}
         setSearchText={setSearchText}
       />}
-      <CardList searchText={searchText} />
+      <CardList searchText={searchText} setSearchText={setSearchText} />
     </div>
   )
 }
