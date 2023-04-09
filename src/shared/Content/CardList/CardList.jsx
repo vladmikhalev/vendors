@@ -7,6 +7,29 @@ import { FilterContext } from '../../../context/FilterContext'
 import ShowAllBlock from './ShowAllBlock/ShowAllBlock'
 import AddCardBtn from './AddCardBtn/AddCardBtn';
 
+// Получение дынных с graphql
+const request = async (query) => {
+  const resp = await fetch('https://api.develop.fortis.d.nimax.ru/graphql/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query })
+  });
+  return await resp.json();
+}
+
+request(`query  {
+  vendorAll {
+    country
+    id
+    name
+    short_description
+  }
+}`).then(console.log)
+
+
+
 // Условные данные карточек с сервера
 
 const data = [
@@ -197,8 +220,6 @@ function CardList(props) {
     props.setSearchText('')
   }
 
-  console.log(cards.length);
-  console.log(newData.length);
   const showBtn = cards.length === newData.length
   return (
     <>
