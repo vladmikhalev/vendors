@@ -128,7 +128,8 @@ const data = [
     name: 'TRAPX',
     text: 'Решения c максимальным уровнем защиты для бизнеса и домашних пользователей',
     tech: 'Positive Technologies',
-  }, {
+  },
+  {
     suppliers: 'РУС',
     id: 18,
     name: 'Positive Technologies',
@@ -141,60 +142,59 @@ const data = [
 
 
 function CardList(props) {
-  const initialProducts = data.slice(0, 9);
-  const [cards, setCards] = useState(initialProducts)
   const context = React.useContext(FilterContext);
+  const [newData, setNewData] = useState([...data])
+  const [cards, setCards] = useState(initialState(data))
 
-  // function initialState(arr) {
-  //   const initialProducts = arr.slice(0, 9);
-  //   return initialProducts;
-  // }
+  function initialState(arr) {
+    const initialProducts = arr.slice(0, 9);
+    return initialProducts;
+  }
 
-  //Фильтрация по российким компаниям
+
   React.useEffect(() => {
-    if (context.filterState) {
-      const filterData = cards.filter((item) => item.suppliers === 'РУС');
-      setCards(filterData);
-    } else {
-      setCards(initialProducts)
-    }
-  }, [context.filterState])
 
+    //Поиск по карточкам
+    let sortValue = data;
+    if (props.searchText || props.searchText === '') {
+      sortValue = data.filter(item => item.name.toLowerCase().startsWith(props.searchText.toLowerCase()))
+      setNewData(sortValue);
+      setCards(initialState(sortValue))
+    } 
 
+    //Фильтрация по российким компаниям
+      if (context.filterState) {
+        const filterData = sortValue.filter((item) => item.suppliers === 'РУС');
+        setNewData(filterData);
+        setCards(initialState(filterData));
+      }
+
+  }, [props.searchText, context.filterState])
 
   // Добавить 6 карточек
   function handleClick() {
     if (showBtn) {
-      setCards(initialProducts)
+      setCards(initialState(newData))
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     } else {
-      const newCards = data.slice(cards.length, cards.length + 6);
-      setCards(cards.concat(newCards))
+      const newCards = newData.slice(cards.length, cards.length + 6);
+      setCards(cards.concat(newCards));
+      // }
     }
   }
 
   // Обработчик события кнопки "Показать все карточки"
   function handleShowAll() {
     if (1321 < window.innerWidth) {
-      console.log('cloooseee');
-    context.handleOpenSearch(false);
-  }
-    setCards(initialProducts);
+      context.handleOpenSearch(false);
+    }
+    setCards(initialState(data));
+    setNewData(data)
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
-  //Поиск по карточкам
-  React.useEffect(() => {
-    if (props.searchText && props.searchText !== '') {
-      const sortValue = data.filter(item => item.name.toLowerCase().startsWith(props.searchText.toLowerCase()))
-      setCards(sortValue)
-    } else {
-      setCards(initialProducts);
-    }
-  }, [props.searchText])
 
-
-  const showBtn = cards.length === data.length
+  const showBtn = cards.length === newData.length
   return (
     <>
       <ul className='cardList'>
@@ -202,7 +202,7 @@ function CardList(props) {
           <Card data={item} key={item.id} />
         ))}
       </ul>
-      {!showBtn && !context.filterState && cards.length !== 0 && <AddCardBtn handleClick={handleClick}>Показать еще</AddCardBtn>}
+      {!showBtn && cards.length !== 0 && <AddCardBtn handleClick={handleClick}>Показать еще</AddCardBtn>}
       {showBtn && cards.length !== 0 && <AddCardBtn handleClick={handleClick} >Скрыть</AddCardBtn>}
       {cards.length === 0 && <ShowAllBlock handleShowAll={handleShowAll} />}
     </>
