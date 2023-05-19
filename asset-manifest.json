@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/vendors/static/css/main.9e395614.css",
+    "main.js": "/vendors/static/js/main.cfa598b3.js",
+    "static/media/TTHoves-Light.woff": "/vendors/static/media/TTHoves-Light.cd3f06180c6b1412194b.woff",
+    "static/media/TTHoves-DemiBold.woff": "/vendors/static/media/TTHoves-DemiBold.214ebe4771cc7905a018.woff",
+    "static/media/TTHoves-Medium.woff": "/vendors/static/media/TTHoves-Medium.ef8091b673986d9ed496.woff",
+    "static/media/TTHoves-Regular.woff": "/vendors/static/media/TTHoves-Regular.495bcecc479d22afb699.woff",
+    "static/media/TTHoves-DemiBold.woff2": "/vendors/static/media/TTHoves-DemiBold.b3865664ea62e512aaa3.woff2",
+    "static/media/TTHoves-Light.woff2": "/vendors/static/media/TTHoves-Light.f28520f14f038ba4cf07.woff2",
+    "static/media/TTHoves-Medium.woff2": "/vendors/static/media/TTHoves-Medium.51cd7342af80b8761920.woff2",
+    "static/media/TTHoves-Regular.woff2": "/vendors/static/media/TTHoves-Regular.2cb6726809285d301e2b.woff2",
+    "index.html": "/vendors/index.html",
+    "static/media/check.svg": "/vendors/static/media/check.e8a93a83281a798c6497.svg",
+    "main.9e395614.css.map": "/vendors/static/css/main.9e395614.css.map",
+    "main.cfa598b3.js.map": "/vendors/static/js/main.cfa598b3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e395614.css",
+    "static/js/main.cfa598b3.js"
+  ]
+}
