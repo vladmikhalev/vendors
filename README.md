@@ -2,7 +2,7 @@
 
 https://vladmikhalev.github.io/vendors/
 
-**Список карточек вендеров с функцией бесконечной прокрутки поиском и фильтрацией.**
+**Список карточек вендеров с функцией бесконечной прокрутки, поиском и фильтрацией.**
 
 <img width="761" alt="Screenshot 2023-05-19 at 20 07 08" src="https://github.com/vladmikhalev/vendors/assets/107835280/1ce234ab-c9b6-41de-bc71-9e8b510e532e">
 
